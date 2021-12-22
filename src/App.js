@@ -1,28 +1,4 @@
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
+import './App.css';
 import React from 'react';
 
 const { useState } = React;
@@ -34,28 +10,27 @@ const shadow = {
 };
 
 const Counter = () => {
-    const [count, setCount] = useState(256);
-    const [testObj, setTestObj] = useState({
-        id:'test',
-        pric: 100,
-    })
-    console.log(`nabi test: ${JSON.stringify(testObj)}`)
+    const [count, setCount] = useState(5);
+    const handleChevron = (type) => () => {
+        if (type === 'up') {
+            setCount(count + 1)
+        } else if(type === "down") {
+            setCount(count - 1);
+        }
+    }
+
+    const limtUP = 10;
+    const limtDown = 0;
+
     return (
         <div className="container" style={shadow}>
-            <div className="chevron chevron-up" onClick={()=>{
-                setCount(count + 1);
-                setTestObj({
-                    id: 'aaa'
-                })
-            }}></div>
+            {count < limtUP && 
+                <div className="chevron chevron-up" onClick={handleChevron('up')}></div>
+            }
             <div className="number">{count}</div>
-            <div className="chevron chevron-down" onClick={()=> {
-                setCount(count - 1);
-                setTestObj({
-                    ...testObj,
-                    id: 'bbb'
-                })
-            }}></div>
+            {count > limtDown &&
+                <div className="chevron chevron-down" onClick={handleChevron('down')}></div>
+            }
         </div>
     )
 }
