@@ -8,7 +8,6 @@ const shadow = {
   boxShadow: '0 0 10px 10px #eaeaea',
   padding: 20, // 省略 px，樣式會自動帶入單位變成 '20px'
 };
-
 const Counter = () => {
     const [count, setCount] = useState(5);
     const handleChevron = (type) => () => {
