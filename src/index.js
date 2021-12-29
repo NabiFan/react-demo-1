@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import NetworkSpeed from './NetworkSpeed';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+  
+    <NetworkSpeed />
   </React.StrictMode>,
   document.getElementById('root')
 );
