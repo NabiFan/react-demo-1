@@ -1,7 +1,7 @@
 import "./NetworkSpeed.css";
 import React from "react";
 
-export default function NetworkSpeed() {
+export default function SpeedConverter() {
   return (
     <div className="container">
       <div className="card-header">Network Speed Converter</div>
