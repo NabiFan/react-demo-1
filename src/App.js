@@ -2,6 +2,7 @@
 // import './App.css';
 import React from 'react'
 import Expense from './components/Expenses/Expense';
+import NewExpenses from './components/NewExpenses/NewExpenses';
 
 const expense = [{
 	id: 'e1',
@@ -35,10 +36,13 @@ const expense = [{
 },
 ];
 
-const App = () => {
+function App() {
+	const addExpenseHandler = (expenseList) => {
+		console.log(expenseList)
+	}
 	return ( 
 		<div>
-			<h2>Let's get started!</h2>
+			<NewExpenses onAddExpenseHandler={addExpenseHandler} />
 			<Expense items={expense} />
 		</div>
 	)
