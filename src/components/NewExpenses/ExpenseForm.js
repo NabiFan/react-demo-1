@@ -8,18 +8,11 @@ export default function ExpenseForm({onSaveExpenseDate}) {
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
-  // const [userInput, setUserInput] = useState({
-  //   enteredTitle:'',
-  //   enteredAmount:'',
-  //   enteredDate:'',
-  // })
-  
+
+  const checkSaveData = () => enteredTitle && enteredAmount && enteredDate;
+
   const titleChangeHandler = (event) => { 
     setEnteredTitle(event.target.value)
-    // setUserInput( (prevState)=> ({
-    //     ...prevState,
-    //     enteredTitle: event.target.value
-    //   }))
   }
   const amountChangeHandler = (event) => {
     setEnteredAmount(event.target.value);
@@ -29,6 +22,13 @@ export default function ExpenseForm({onSaveExpenseDate}) {
   }
   const submitHandler = (event) => {
     event.preventDefault(); // 停止默認動作
+
+    if (!checkSaveData()) {
+      // eslint-disable-next-line no-alert
+      window.alert('Please type infomation!');
+      return;
+    }
+
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
