@@ -1,6 +1,7 @@
+import React from 'react';
 import './ExpenseDate.css';
 
-const ExpendeDate = ({date}) => {
+function ExpendeDate({date}) {
   const month = date.toLocaleString(navigator.language, {month: 'long'});
   const day = date.toLocaleString(navigator.language, {day: '2-digit'});
   const year = date.getFullYear();
