@@ -31,7 +31,7 @@ export default function ExpenseForm({onSaveExpenseDate}) {
 
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate)
     }
     
